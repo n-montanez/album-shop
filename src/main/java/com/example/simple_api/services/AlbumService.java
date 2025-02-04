@@ -20,6 +20,6 @@ public class AlbumService {
     }
 
     public Album albumById(UUID id) {
-        return albumRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
+        return albumRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Album", id));
     }
 }
