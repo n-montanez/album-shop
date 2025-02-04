@@ -1,0 +1,19 @@
+GET http://localhost:8080/album
+
+###
+GET http://localhost:8080/album/108b1f74-081c-4f8a-8cb2-308ec6debe74
+
+###
+GET http://localhost:8080/album/108b1f74-081c-4f8a-8cb2-308ec6debe75
+
+###
+POST http://localhost:8080/album
+Content-Type: application/json
+
+{
+    "title": "19",
+    "artistName": "Adele",
+    "durationMinutes": 53,
+    "tracks": 12,
+    "releaseDate": "2008-28-01"
+}
