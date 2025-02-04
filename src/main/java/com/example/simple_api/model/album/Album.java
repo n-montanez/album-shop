@@ -1,4 +1,4 @@
-package com.example.simple_api.model;
+package com.example.simple_api.model.album;
 
 import java.util.Date;
 import java.util.UUID;

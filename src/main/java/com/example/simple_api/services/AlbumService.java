@@ -6,7 +6,8 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.example.simple_api.errors.ResourceNotFoundException;
-import com.example.simple_api.model.Album;
+import com.example.simple_api.model.album.Album;
+import com.example.simple_api.model.album.PostAlbumDTO;
 import com.example.simple_api.repository.AlbumRepository;
 import lombok.RequiredArgsConstructor;
 
@@ -21,5 +22,17 @@ public class AlbumService {
 
     public Album albumById(UUID id) {
         return albumRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Album", id));
+    }
+
+    public Album createAlbum(PostAlbumDTO albumDTO) {
+        Album newAlbum = Album.builder()
+                .title(albumDTO.getTitle())
+                .artistName(albumDTO.getArtistName())
+                .durationMinutes(albumDTO.getDurationMinutes())
+                .releaseDate(albumDTO.getReleaseDate())
+                .tracks(albumDTO.getTracks())
+                .build();
+
+        return albumRepository.save(newAlbum);
     }
 }
