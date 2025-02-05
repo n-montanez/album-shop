@@ -20,3 +20,10 @@ spring:
       ddl-auto: update
   application:
     name: simple-api
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - prometheus
