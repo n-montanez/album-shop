@@ -21,6 +21,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.Builder.Default;
 
 @Entity
 @Table(name = "physical_copies")
@@ -45,6 +46,9 @@ public class PhysicalCopy {
 
     @Min(value = 0, message = "Price value should be positive")
     private Integer price;
+
+    @Default
+    private Boolean signed = false;
 
     @ManyToOne
     @JoinColumn(name = "album_id", nullable = false)
