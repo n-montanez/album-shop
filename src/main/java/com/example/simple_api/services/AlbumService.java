@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
-
-import com.example.simple_api.errors.ResourceNotFoundException;
 import com.example.simple_api.model.album.Album;
 import com.example.simple_api.model.album.PostAlbumDTO;
 import com.example.simple_api.repository.AlbumRepository;
@@ -21,7 +19,7 @@ public class AlbumService {
     }
 
     public Album albumById(UUID id) {
-        return albumRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Album", id));
+        return albumRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Album " + id));
     }
 
     public Album createAlbum(PostAlbumDTO albumDTO) {

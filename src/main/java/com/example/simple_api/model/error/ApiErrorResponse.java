@@ -13,13 +13,13 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class ErrorResponse {
+public class ApiErrorResponse {
     private String timestamp;
     private int status;
     private String error;
     private String message;
 
-    public ErrorResponse(int status, String message) {
+    public ApiErrorResponse(int status, String message) {
         this.timestamp = Instant.now().toString();
         this.status = status;
         this.error = HttpStatus.valueOf(status).toString();
