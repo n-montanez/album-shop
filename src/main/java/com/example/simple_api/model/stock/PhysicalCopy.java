@@ -3,6 +3,7 @@ package com.example.simple_api.model.stock;
 import java.util.UUID;
 
 import com.example.simple_api.model.album.Album;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -52,5 +53,6 @@ public class PhysicalCopy {
 
     @ManyToOne
     @JoinColumn(name = "album_id", nullable = false)
+    @JsonBackReference
     private Album album;
 }

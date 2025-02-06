@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 
 import com.example.simple_api.model.stock.PhysicalCopy;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -42,5 +43,6 @@ public class Album {
     private int durationMinutes;
 
     @OneToMany(mappedBy = "album", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<PhysicalCopy> physicalCopies;
 }
