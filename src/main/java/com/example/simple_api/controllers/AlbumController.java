@@ -7,6 +7,8 @@ import com.example.simple_api.handlers.AlbumModelAssembler;
 import com.example.simple_api.model.album.Album;
 import com.example.simple_api.model.album.PostAlbumDTO;
 import com.example.simple_api.services.AlbumService;
+
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
@@ -45,7 +47,7 @@ public class AlbumController {
     }
 
     @PostMapping
-    public EntityModel<Album> newAlbum(@RequestBody PostAlbumDTO albumDTO) {
+    public EntityModel<Album> newAlbum(@RequestBody @Valid PostAlbumDTO albumDTO) {
         return assembler.toModel(albumService.createAlbum(albumDTO));
     }
 
